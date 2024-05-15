@@ -15,7 +15,7 @@ const SwipeButton: React.FC<SwipeButtonProps> = ({ onSwipeRight }) => {
         onSwipeRight();
       }
     },
-    onSwiping: (event) => {
+    onSwiping: () => {
       setIsSwiping(true);
     },
     onSwiped: () => {
@@ -25,36 +25,34 @@ const SwipeButton: React.FC<SwipeButtonProps> = ({ onSwipeRight }) => {
     trackMouse: true,
   });
 
+  const handleMouseDown = () => {
+    setIsSwiping(true);
+  };
+
+  const handleMouseUp = () => {
+    if (isSwiping) {
+      onSwipeRight();
+    }
+    setIsSwiping(false);
+  };
+
   return (
-    <button
-      {...swipeHandlers}
-      ref={buttonRef}
-      className="relative w-36 h-12 overflow-hidden bg-blue-500 rounded-full text-white font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-transform duration-300 transform-gpu hover:scale-105"
+    <div
+      className="relative m-2 w-60 h-12 overflow-hidden bg-blue-500 rounded-full text-white font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-transform duration-300 transform-gpu hover:scale-105"
+      style={{ touchAction: "none" }} // Add touch-action CSS property
     >
-      <span
-        className={`absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center transition-opacity duration-300 opacity-0 ${
-          isSwiping ? "opacity-100" : ""
-        }`}
+      <button
+        {...swipeHandlers}
+        ref={buttonRef}
+        className="absolute inset-0 w-full h-full flex items-center justify-center"
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onTouchStart={handleMouseDown}
+        onTouchEnd={handleMouseUp}
       >
-        <svg
-          className="w-6 h-6 animate-bounce"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M9 5H15M12 12L15 9M15 9L18 12M15 9L12 6M15 19V22M15 22L18 19M15 22L12 19M15 22L9 19M9 2H15M6 21L3 18M3 18L6 15M3 18L6 21M3 18L6 15M3 18L6 21M3 18L6 15"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </span>
-      <span className="absolute inset-0 flex items-center justify-center">
         Swipe Right to Check All
-      </span>
-    </button>
+      </button>
+    </div>
   );
 };
 

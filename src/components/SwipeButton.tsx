@@ -38,7 +38,7 @@ const SwipeButton: React.FC<SwipeButtonProps> = ({ onSwipeRight }) => {
 
   return (
     <div
-      className="relative m-2 w-60 h-12 overflow-hidden bg-blue-500 rounded-full text-white font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-transform duration-300 transform-gpu hover:scale-105"
+      className="relative m-4 w-60 h-12 overflow-hidden bg-blue-500 rounded-full text-white font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-transform duration-300 transform-gpu hover:scale-105"
       style={{ touchAction: "none" }} // Add touch-action CSS property
     >
       <button

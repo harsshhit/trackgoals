@@ -50,7 +50,7 @@ const SwipeButton: React.FC<SwipeButtonProps> = ({ onSwipeRight }) => {
         onTouchStart={handleMouseDown}
         onTouchEnd={handleMouseUp}
       >
-        Swipe Right to Check All
+        Swipe to Check All
       </button>
     </div>
   );

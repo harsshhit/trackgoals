@@ -11,6 +11,7 @@ const Home: React.FC = () => {
           width: "300px",
           height: "600px",
           backgroundColor: "#212121",
+          
         }}
       >
         <TodoList />

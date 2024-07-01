@@ -14,7 +14,7 @@ interface TodoItemProps {
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo, onClick }) => {
   return (
-    <div className="flex items-center justify-between py-3 px-4 my-2 bg-gray-800 rounded-lg shadow-md hover:shadow-lg">
+    <div className="flex items-center justify-between text-white py-3 px-4 my-2 bg-gray-800 rounded-lg shadow-md hover:shadow-lg">
       <div className="flex items-center">
         <div className="w-9 mr-4 flex items-center justify-center">
           <img

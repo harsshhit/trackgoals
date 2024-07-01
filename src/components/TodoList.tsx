@@ -72,7 +72,7 @@ const TodoList: React.FC = () => {
   return (
     <div>
       <ProgressBar todos={todos} />
-      <div className="flex py-4 font-bold">
+      <div className="flex py-4 font-bold text-white">
         <p>Todays Goal</p>
       </div>
       {todos.map((todo) => (
